@@ -1,0 +1,21 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<html>  
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+</head>
+<style>
+    body{
+        background-color: rgb(233, 233, 233);
+    }
+</style>
+<body >
+    {%include 'header.html' %}
+  <main class ="main">
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>

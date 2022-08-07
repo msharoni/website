@@ -41,15 +41,15 @@
 }
 .header
 {
+    width: 100%;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     background-color: white; 
-    margin: -10px;
     border-bottom: 1px solid black;
     display: flex;
 }
 </style>
 <div class ="header">
-    <a href="{%url 'home'%}"><img style ="margin: 10px;"src="https://www.linkpicture.com/q/6d7bbe1adb944c9dbc7f467203f4b6aa-1_1.png"  alt="logo"></a>
+    <a href="{%url 'home'%}"><img style ="margin: 10px; margin-left: 50px;"src="https://www.linkpicture.com/q/6d7bbe1adb944c9dbc7f467203f4b6aa-1_1.png"  alt="logo"></a>
     {% if user.is_authenticated %}
   <p><form action="{% url 'logout' %}">
     <div style = "flex:1; margin-top:25px; margin-left: 335%;" >
@@ -60,6 +60,6 @@
 {% else %}
   
   <form action="{% url 'login' %}">
-    <button style= "flex:1; margin-top:25px; margin-left: 475%;"class= "Button" type="submit">Log In</button>
+    <button style= "flex:1; margin-top:25px; margin-left: 435%;"class= "Button" type="submit">Log In</button>
 </form>{% endif %}
 </div>

@@ -6,17 +6,23 @@
 <p style="text-align: center; font-size: xx-large; font-weight: bolder;">
     Welcome to the home page!
     <p style="text-align: center;font-size: larger; margin: 70px;">
-        <br><br><br>
-        My name is Mor Sharoni! <br> I am a software engineer and a web developer.
+        <br>
+        {% if user.is_authenticated %}
+        Hi 
+        <a style="font-family: Brush Script MT; font-size: xx-large;">{{ user.username }}!<br><br></a>
+        {% endif %}
+        My name is Mor Sharoni, <br> I am a software engineer and a web developer.
         <br><br>
         I take part in a program for gifted students which allows us to complete a bachelor degree in
         computer science at the Jerusalem College of Technology (JCT) while simultaneously finishing
         highschool with the highest marks possible. I am currently finishing 12th grade and therefore
         completing my fourth year of the five year program which accounts for about 80% of my degree.
         <br><br>
-        For my full resume click here <a style="color: white;"href="{% url 'download' 'Resume.pdf' %}"><ion-icon style="color: blue; font-size: 24px; vertical-align: middle;"name="arrow-down-circle-outline"></ion-icon></a>
+        For my full Résumé click here: <a style="color: white;"href="{% url 'download' 'Resume.pdf' %}"><ion-icon style="color: blue; font-size: 24px; vertical-align: middle;"name="arrow-down-circle-outline"></ion-icon></a>
         <br><br>
-        You can <a href="{% url 'login' %}">log in</a> or register to get started.
+        {% if not user.is_authenticated %}
+        You can <a href="{% url 'login' %}">log in</a> or <a href="{% url 'signup' %}">register</a> to get started.
+        {% endif %}
     </p>
 </p>
 {% endblock %}

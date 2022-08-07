@@ -2,8 +2,11 @@ import mimetypes
 import os;
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http.response import HttpResponse
+from .forms import SignUpForm 
+
+
 
 def login_user(request):
     logout(request)
@@ -18,6 +21,20 @@ def login_user(request):
                 return HttpResponseRedirect('/')
     return render(request, 'registration/login.html')
 
+def signup(request): 
+    form = SignUpForm(request.POST) 
+    if form.is_valid(): 
+        form.save() 
+        username = form.cleaned_data.get('username') 
+        password = form.cleaned_data.get('password') 
+        user = form.save()
+        login(request, user) 
+        return redirect('home') 
+    context = { 
+        'form': form 
+    } 
+    return render(request, 'registration/signup.html', context) 
+    
 def download_file(request, filename=''):
     if filename != '':
         # Define Django project base directory
@@ -37,3 +54,4 @@ def download_file(request, filename=''):
     else:
         # Load the template
         return render(request, '/')
+

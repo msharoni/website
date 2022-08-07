@@ -24,5 +24,6 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path("login/", views.login_user, name="login"),
     path('download/<filename>', views.download_file, name='download'),
-    
+    path('signup/', views.signup, name="signup") 
+
 ]

@@ -43,7 +43,12 @@
      width: 100%;
      margin-top: 15%;
     }
-
+    .links{
+        color: #4eb5f1;
+    }
+    .links:hover {
+    color: #4095c6;
+}
 
 
         
@@ -67,7 +72,7 @@
       <input name = "password"type="password" name="password" id="" placeholder="Password">
   </div>
   <div class="wrapper">
-      <a class="links">Sign Up</button>
+      <a class="links" href="{%url 'signup'%}">Sign Up</a>
       <button type="submit" class="Button" style="float: right;">Sign In</button>
   </div>
 </form>

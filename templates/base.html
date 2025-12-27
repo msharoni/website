@@ -3,7 +3,14 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+    <head>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    
+    <title>Mor Sharoni | Software Engineer</title>
+	</head>
+
+  <title>{% block title %}My website{% endblock %}</title>
 </head>
 <style>
     .body{
